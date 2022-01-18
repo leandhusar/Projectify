@@ -27,3 +27,56 @@ Luego, debe crear un super-usuario en el sistema, ejecute:
 Con esto ya podrá ejecutar el proyecto, usando el comando:
 
 `python manage.py runserver`
+
+## API Endpoints
+Las siguientes son las rutas de las APIs construidas para este proyecto, con su respectivo método.
+**Aclaración: **Solo la API del Token no requiere autenticación, pero es clave para obtener el token JWT para acceder a los otros servicios.
+
+* ### Token /api/token/
+**Método**  POST
+*Obtiene JWT de un usuario. Estos tokens tienen un ciclo de vida de 5 minutos.*
+    ```json
+Body = {
+    	username: string,
+    	password: string
+    }
+```
+
+* ### Report /api/report/
+**Método**  GET
+*Obtiene los reportes creados por un usuario.*
+    ```json
+Authorization = Bearer <user_token>
+```
+**Método**  POST
+*Crea un nuevo reporte. No se crea el reporte si el usuario ya ha creado un reporte de el projecto al que hace referencia durante su semana de creación.*
+    ```json
+Authorization = Bearer <user_token>
+Body = {
+    	project: number,
+    	percentage: number
+    }
+```
+**Método**  PUT
+*Modifica un reporte creado por el usuario. Un usuario no puede modificar un reporte ajeno, ni tampoco reportes hechos en meses pasados.*
+    ```javascript
+Authorization = Bearer <user_token>
+Body = {
+    	id: number,
+    	percentage: number
+    }
+```
+
+* ### Project /api/project/
+*Obtiene los proyectos de la empresa.*
+**Método**  GET
+    ```json
+Authorization = Bearer <user_token>
+```
+
+## Producción
+Puede utilizar como URL base del proyecto esta URL: [https://mighty-shore-53449.herokuapp.com](https://mighty-shore-53449.herokuapp.com "https://mighty-shore-53449.herokuapp.com").
+
+Puede acceder a un Token con una cuenta consumiento el servicio */api/token/* con las siguientes credenciales:
+* **username:** leanware0
+* **password:** Clave123_
