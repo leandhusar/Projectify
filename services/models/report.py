@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
-from projectify.models.project import Project
+from services.models.project import Project
 
 class Report(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-class ProjectifyConfig(AppConfig):
+class ServicesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'projectify'
+    name = 'services'

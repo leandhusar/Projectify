@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from projectify.models.report import Report
+from services.models.report import Report
 
 class ReportSerializer(serializers.ModelSerializer):
     creation_date = serializers.SerializerMethodField()

@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from projectify.serializers.project_serializer import ProjectSerializer
-from projectify.models.project import Project
+from services.serializers.project_serializer import ProjectSerializer
+from services.models.project import Project
 
 class ProjectAPI(APIView):
     permission_classes = [IsAuthenticated]

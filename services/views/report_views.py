@@ -3,8 +3,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from projectify.serializers.report_serializer import ReportSerializer
-from projectify.models.report import Report
+from services.serializers.report_serializer import ReportSerializer
+from services.models.report import Report
 
 class ReportAPI(APIView):
     permission_classes = [IsAuthenticated]
